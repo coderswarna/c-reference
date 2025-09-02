@@ -4,7 +4,7 @@ This repository contains various C programming study materials, including source
 
 ---
 
-## **Author: [*`Swarnadeep Paul`*](https://github.com/10112007)**
+## **Author: [*`Swarnadeep Paul`*](https://github.com/coderswarna)**
 
 ## **Contents**
 
