@@ -16,6 +16,9 @@ Below is a list of files in this folder:
 
 ## Getting Started
 
-1. Browse the files above to find code samples and notes.
+- Browse the files above to find code samples and notes.
 
-Feel free to contribute or suggest improvements!
+## Contribution
+
+- Feel free to contribute or suggest improvements!
+- Just make a pull request with detailed notes
