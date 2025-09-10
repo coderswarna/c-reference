@@ -1,8 +1,32 @@
-# Comprehensive Guide to complex.h in C
+# C Standard Library `<complex.h>` — Complete Documentation
 
 ## Overview
 
-The `complex.h` header file, introduced with the **C99 standard**, provides comprehensive functionality for complex number arithmetic in C programming. This header defines macros, types, and functions for working with three complex arithmetic types: `float _Complex`, `double _Complex`, and `long double _Complex`.
+The `complex.h` header, available since C99, enables **complex number arithmetic** in the C programming language. It provides:
+
+- Complex types (float, double, long double, `_Complex`)
+- Construction macros and imaginary unit constants
+- Arithmetic, trigonometric, exponential, and hyperbolic functions
+- A pragma to control implementation details
+
+---
+
+## Table of Contents
+
+- [Macros](#macros)
+- [Pragma](#pragma-directive)
+- [Complex Types](#complex-types)
+- [Function Reference](#function-categories)
+  - [Basic Operations](#1-basic-operations)
+  - [Exponential Functions](#2-exponential-functions)
+  - [Trigonometric Functions](#3-trigonometric-functions)
+  - [Inverse Trigonometric Functions](#4-inverse-trigonometric-functions)
+  - [Hyperbolic Functions](#5-hyperbolic-functions)
+  - [Inverse Hyperbolic Functions](#6-inverse-hyperbolic-functions)
+- [Type-Generic Math](#type-generic-math-support)
+- [Usage Notes](#usage-notes)
+
+---
 
 ## Macros
 
@@ -65,6 +89,10 @@ int main() {
 
 - **Return Type**: `float complex` and `long double complex` respectively
 - **Usage**: Single and extended precision versions of CMPLX
+- **Example**:
+
+  - `float complex z = CMPLXF(3.0f, 4.0f);`
+  - `long double complex z = CMPLXL(3.0L, 4.0L);`
 
 ## Pragma Directive
 
@@ -78,16 +106,21 @@ int main() {
     2. `(x+iy)/(u+iv) = [(xu+yv)+i(yu-xv)]/(u²+v²)`
     3. `|x+iy| = √(x²+y²)`
 - **Warning**: May cause intermediate overflow issues
+- **Usage Example:**
+
+```c
+#pragma STDC CX_LIMITED_RANGE ON
+```
 
 ## Complex Types
 
 The header supports three complex number types:
 
-| Type | Description |
-| :-- | :-- |
-| `float _Complex` | Single precision complex |
-| `double _Complex` | Double precision complex |
-| `long double _Complex` | Extended precision complex |
+| Type                      | Description                    | Example                  |
+|---------------------------|--------------------------------|--------------------------|
+| `float _Complex`          | Single precision complex type  | `float _Complex z;`      |
+| `double _Complex`         | Double precision complex type  | `double _Complex z;`     |
+| `long double _Complex`    | Extended precision complex type| `long double _Complex z;`|
 
 ## Function Categories
 
@@ -97,6 +130,7 @@ Each function in `complex.h` comes in three variants (float, double, long double
 
 **`cabs, cabsf, cabsl`**
 
+- **Syntax**: `double cabs(double complex z)`
 - **Return Type**: Real floating-point type
 - **Description**: Computes absolute value (magnitude) of complex number
 - **Formula**: `|z| = √(real² + imag²)`
@@ -109,6 +143,7 @@ double magnitude = cabs(z);  // Returns 5.0
 
 **`carg, cargf, cargl`**
 
+- **Syntax**: `double carg(double complex z)`
 - **Return Type**: Real floating-point type
 - **Description**: Computes phase angle (argument) in radians
 - **Formula**: `arg(z) = atan2(imag, real)`
@@ -122,6 +157,7 @@ double angle = carg(z);  // Returns π/4 ≈ 0.7854
 
 **`creal, crealf, creall`**
 
+- **Syntax**: `double creal(double complex z)`
 - **Return Type**: Real floating-point type
 - **Description**: Extracts real part of complex number
 - **Example**:
@@ -133,6 +169,7 @@ double real_part = creal(z);  // Returns 3.5
 
 **`cimag, cimagf, cimagl`**
 
+- **Syntax**: `double cimag(double complex z)`
 - **Return Type**: Real floating-point type
 - **Description**: Extracts imaginary part of complex number
 - **Example**:
@@ -144,6 +181,7 @@ double imag_part = cimag(z);  // Returns -2.7
 
 **`conj, conjf, conjl`**
 
+- **Syntax**: `double complex conj(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex conjugate
 - **Formula**: For `z = a + bi`, returns `a - bi`
@@ -156,6 +194,7 @@ double complex z_conj = conj(z);  // Returns 3.0 - 4.0*I
 
 **`cproj, cprojf, cprojl`**
 
+- **Syntax**: `double complex cproj(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Projects complex number onto Riemann sphere
 - **Behavior**: Maps complex infinities to positive infinity on real axis
@@ -174,6 +213,7 @@ double complex proj2 = cproj(z2);  // Returns inf + 0.0*I
 
 **`cexp, cexpf, cexpl`**
 
+- **Syntax**: `double complex cexp(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex exponential `e^z`
 - **Formula**: `e^(a+bi) = e^a × (cos(b) + i×sin(b))`
@@ -186,6 +226,7 @@ double complex result = cexp(z);  // Returns -2.7183 + 0.0000*I
 
 **`clog, clogf, clogl`**
 
+- **Syntax**: `double complex clog(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex natural logarithm
 - **Formula**: `log(z) = log|z| + i×arg(z)`
@@ -199,6 +240,7 @@ double complex result = clog(z);  // Returns 0.3466 + 0.7854*I
 
 **`cpow, cpowf, cpowl`**
 
+- **Syntax**: `double complex cpow(double complex x, y)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex power `x^y`
 - **Formula**: `x^y = exp(y × log(x))`
@@ -210,6 +252,7 @@ double complex result = cpow(2.0 + 0.0*I, 3.0 + 0.0*I);  // Returns 8.0 + 0.0*I
 
 **`csqrt, csqrtf, csqrtl`**
 
+- **Syntax**: `double complex csqrt(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex square root
 - **Formula**: `√z = √|z| × exp(i×arg(z)/2)`
@@ -225,6 +268,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`ccos, ccosf, ccosl`**
 
+- **Syntax**: `double complex ccos(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex cosine
 - **Formula**: `cos(z) = (e^(iz) + e^(-iz))/2`
@@ -232,6 +276,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`csin, csinf, csinl`**
 
+- **Syntax**: `double complex csin(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex sine
 - **Formula**: `sin(z) = (e^(iz) - e^(-iz))/(2i)`
@@ -239,6 +284,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`ctan, ctanf, ctanl`**
 
+- **Syntax**: `double complex ctan(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex tangent
 - **Formula**: `tan(z) = sin(z)/cos(z)`
@@ -248,6 +294,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`cacos, cacosf, cacosl`**
 
+- **Syntax**: `double complex cacos(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex arc cosine
 - **Formula**: `acos(z) = -i × log(z + i×√(1-z²))`
@@ -256,6 +303,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`casin, casinf, casinl`**
 
+- **Syntax**: `double complex casin(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex arc sine
 - **Formula**: `asin(z) = -i × log(i×z + √(1-z²))`
@@ -263,6 +311,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`catan, catanf, catanl`**
 
+- **Syntax**: `double complex catan(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex arc tangent
 - **Formula**: `atan(z) = (i/2) × log((i+z)/(i-z))`
@@ -273,6 +322,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`ccosh, ccoshf, ccoshl`**
 
+- **Syntax**: `double complex ccosh(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex hyperbolic cosine
 - **Formula**: `cosh(z) = (e^z + e^(-z))/2`
@@ -280,6 +330,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`csinh, csinhf, csinhl`**
 
+- **Syntax**: `double complex csinh(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex hyperbolic sine
 - **Formula**: `sinh(z) = (e^z - e^(-z))/2`
@@ -287,6 +338,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`ctanh, ctanhf, ctanhl`**
 
+- **Syntax**: `double complex ctanh(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex hyperbolic tangent
 - **Formula**: `tanh(z) = sinh(z)/cosh(z)`
@@ -295,6 +347,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`cacosh, cacoshf, cacoshl`**
 
+- **Syntax**: `double complex cacosh(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex hyperbolic arc cosine
 - **Formula**: `acosh(z) = log(z + √(z²-1))`
@@ -303,6 +356,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 
 **`casinh, casinhf, casinhl`**
 
+- **Syntax**: `double complex casinh(double complex z)`
 - **Return Type**: Complex type matching input
 - **Description**: Computes complex hyperbolic arc sine
 - **Formula**: `asinh(z) = log(z + √(z²+1))`
@@ -311,6 +365,7 @@ double complex result = csqrt(z);  // Returns 0.0 + 1.0*I
 **`catanh, catanhf, catanhl`**
 
 - **Return Type**: Complex type matching input
+- **Syntax**: `double complex catanh(double complex z)`
 - **Description**: Computes complex hyperbolic arc tangent
 - **Formula**: `atanh(z) = (1/2) × log((1+z)/(1-z))`
 - **Range**: Real part `(-∞, ∞)`, Imaginary part `[-π/2, π/2]`
@@ -323,6 +378,15 @@ When `<tgmath.h>` is included, type-generic macros are available that automatica
 - `sqrt(4.0f)` calls `csqrtf()` for float complex
 - `sqrt(4.0)` calls `csqrt()` for double complex
 - `sqrt(4.0L)` calls `csqrtl()` for long double complex
+
+```c
+#include <tgmath.h>
+
+double complex z = 3.0 + 4.0*I;
+double magnitude = cabs(z);  // Calls cabs()
+float complex zf = 3.0f + 4.0f*I;
+float magnitude_f = cabs(zf);  // Calls cabsf()
+```
 
 ## Usage Notes
 
@@ -339,6 +403,7 @@ Many complex functions have **branch cuts** - discontinuities where the function
 - **C99 or later**: Required for complex number support
 - **Compiler flags**: Use `-std=c99` or later standards
 - **Headers**: Include `<complex.h>` for complex functions
+- **Confilcts**: `<complex.h>` does not conflict with C++ `<complex>`, which is a template class.
 
 ### Example Complete Program
 
