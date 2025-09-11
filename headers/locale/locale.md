@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
 # Complete Reference Guide to C locale.h Header
 
 Based on my extensive research of C standard documentation and references, here is the comprehensive list of all functions, macros, keywords, and structures in the **locale.h** header file.

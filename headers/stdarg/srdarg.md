@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
 # Comprehensive Reference for `<stdarg.h>`
 
 This reference covers all types, macros, and functions defined in the C Standard `<stdarg.h>`, including their purpose, signatures, behaviors, and illustrative examples with outputs.

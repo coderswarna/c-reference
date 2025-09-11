@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
 # Alignment Support in `<stdalign.h>`
 
 **Key Takeaway:** The `<stdalign.h>` header provides four macros and two C11 alignment keywords to query and specify object alignment. Use these macros and keywords to enforce or inspect alignment requirements for types and variables in portable C code.
