@@ -1,10 +1,12 @@
 # Complete Reference Guide to C `inttypes.h` Header File
 
-The `inttypes.h` header file, introduced in C99, provides portable format specifiers for integer types defined in `stdint.h` and functions for working with the widest integer types. This header is essential for writing portable code that handles different integer sizes across various platforms.[^1][^2][^3]
+## Introduction
+
+The `inttypes.h` header file, introduced in C99, provides portable format specifiers for integer types defined in `stdint.h` and functions for working with the widest integer types. This header is essential for writing portable code that handles different integer sizes across various platforms.
 
 ## Header Dependencies
 
-The `inttypes.h` header automatically includes `stdint.h`, making all fixed-width integer types available without explicitly including `stdint.h`.[^4][^1]
+The `inttypes.h` header automatically includes `stdint.h`, making all fixed-width integer types available without explicitly including `stdint.h`.
 
 ## Functions
 
@@ -12,9 +14,9 @@ The `inttypes.h` header automatically includes `stdint.h`, making all fixed-widt
 
 **Signature:** `intmax_t imaxabs(intmax_t j);`
 
-**Description:** Computes the absolute value of an `intmax_t` value, equivalent to `abs()` but for the maximum integer type.[^5][^6]
+**Description:** Computes the absolute value of an `intmax_t` value, equivalent to `abs()` but for the maximum integer type.
 
-**Return Value:** Returns the absolute value of the input. If the result cannot be represented, behavior is undefined.[^7]
+**Return Value:** Returns the absolute value of the input. If the result cannot be represented, behavior is undefined.
 
 **Example:**
 
@@ -25,14 +27,13 @@ printf("imaxabs(-12345) = %jd\n", result);
 // Output: imaxabs(-12345) = 12345
 ```
 
-
 ### `imaxdiv()` - Division with Quotient and Remainder
 
 **Signature:** `imaxdiv_t imaxdiv(intmax_t numer, intmax_t denom);`
 
-**Description:** Computes both quotient and remainder of `intmax_t` division in a single operation, similar to `div()` but for maximum integer types.[^6][^7]
+**Description:** Computes both quotient and remainder of `intmax_t` division in a single operation, similar to `div()` but for maximum integer types.
 
-**Return Value:** Returns an `imaxdiv_t` structure containing both quotient (`quot`) and remainder (`rem`) fields.[^8][^4]
+**Return Value:** Returns an `imaxdiv_t` structure containing both quotient (`quot`) and remainder (`rem`) fields.
 
 **Example:**
 
@@ -44,12 +45,11 @@ printf("imaxdiv(45, 7): quotient = %jd, remainder = %jd\n",
 // Output: imaxdiv(45, 7): quotient = 6, remainder = 3
 ```
 
-
 ### `strtoimax()` - String to Maximum Signed Integer Conversion
 
 **Signature:** `intmax_t strtoimax(const char *restrict nptr, char **restrict endptr, int base);`
 
-**Description:** Converts a string to an `intmax_t` value, equivalent to `strtol()` but returning the widest signed integer type.[^9][^10]
+**Description:** Converts a string to an `intmax_t` value, equivalent to `strtol()` but returning the widest signed integer type.
 
 **Parameters:**
 
@@ -57,7 +57,7 @@ printf("imaxdiv(45, 7): quotient = %jd, remainder = %jd\n",
 - `endptr`: Pointer to pointer that will point to first invalid character
 - `base`: Number base (2-36 or 0 for auto-detection)
 
-**Return Value:** The converted `intmax_t` value. On overflow, returns `INTMAX_MAX` or `INTMAX_MIN` and sets `errno` to `ERANGE`.[^9]
+**Return Value:** The converted `intmax_t` value. On overflow, returns `INTMAX_MAX` or `INTMAX_MIN` and sets `errno` to `ERANGE`.
 
 **Example:**
 
@@ -69,12 +69,11 @@ printf("strtoimax(\"12345\", NULL, 10) = %jd\n", val);
 // Output: strtoimax("12345", NULL, 10) = 12345
 ```
 
-
 ### `strtoumax()` - String to Maximum Unsigned Integer Conversion
 
 **Signature:** `uintmax_t strtoumax(const char *restrict nptr, char **restrict endptr, int base);`
 
-**Description:** Converts a string to a `uintmax_t` value, equivalent to `strtoul()` but returning the widest unsigned integer type.[^6]
+**Description:** Converts a string to a `uintmax_t` value, equivalent to `strtoul()` but returning the widest unsigned integer type.
 
 **Return Value:** The converted `uintmax_t` value. On overflow, returns `UINTMAX_MAX` and sets `errno` to `ERANGE`.
 
@@ -88,12 +87,11 @@ printf("strtoumax(\"54321\", NULL, 10) = %ju\n", val);
 // Output: strtoumax("54321", NULL, 10) = 54321
 ```
 
-
 ### `wcstoimax()` - Wide String to Maximum Signed Integer Conversion
 
 **Signature:** `intmax_t wcstoimax(const wchar_t *restrict nptr, wchar_t **restrict endptr, int base);`
 
-**Description:** Wide character version of `strtoimax()`, converting wide character strings to `intmax_t`.[^11][^12]
+**Description:** Wide character version of `strtoimax()`, converting wide character strings to `intmax_t`.
 
 **Example:**
 
@@ -105,12 +103,11 @@ printf("wcstoimax(L\"98765\", NULL, 10) = %jd\n", val);
 // Output: wcstoimax(L"98765", NULL, 10) = 98765
 ```
 
-
 ### `wcstoumax()` - Wide String to Maximum Unsigned Integer Conversion
 
 **Signature:** `uintmax_t wcstoumax(const wchar_t *restrict nptr, wchar_t **restrict endptr, int base);`
 
-**Description:** Wide character version of `strtoumax()`, converting wide character strings to `uintmax_t`.[^13][^14]
+**Description:** Wide character version of `strtoumax()`, converting wide character strings to `uintmax_t`.
 
 **Example:**
 
@@ -122,12 +119,11 @@ printf("wcstoumax(L\"56789\", NULL, 10) = %ju\n", val);
 // Output: wcstoumax(L"56789", NULL, 10) = 56789
 ```
 
-
 ## Types
 
 ### `imaxdiv_t` - Structure for Division Results
 
-**Definition:** Structure type returned by `imaxdiv()` function.[^4][^8]
+**Definition:** Structure type returned by `imaxdiv()` function.
 
 **Members:**
 
@@ -146,10 +142,9 @@ printf("quot = %jd, rem = %jd\n", result.quot, result.rem);
 // Output: quot = 6, rem = 3
 ```
 
-
 ## Format Specifier Macros
 
-The `inttypes.h` header provides extensive format specifier macros for `printf()` and `scanf()` functions. These macros ensure portable formatting across different platforms and architectures.[^15][^2][^1]
+The `inttypes.h` header provides extensive format specifier macros for `printf()` and `scanf()` functions. These macros ensure portable formatting across different platforms and architectures.
 
 ### Macro Naming Convention
 
@@ -159,8 +154,7 @@ The `inttypes.h` header provides extensive format specifier macros for `printf()
 Where:
 
 - **format**: `d` (decimal), `i` (integer), `o` (octal), `u` (unsigned), `x` (hex lowercase), `X` (hex uppercase)
-- **type**: `8`, `16`, `32`, `64`, `LEAST8`, `LEAST16`, `LEAST32`, `LEAST64`, `FAST8`, `FAST16`, `FAST32`, `FAST64`, `MAX`, `PTR`[^3][^16]
-
+- **type**: `8`, `16`, `32`, `64`, `LEAST8`, `LEAST16`, `LEAST32`, `LEAST64`, `FAST8`, `FAST16`, `FAST32`, `FAST64`, `MAX`, `PTR`
 
 ### Printf Format Macros for Signed Integers (Decimal)
 
@@ -278,7 +272,7 @@ Where:
 
 ### Scanf Format Macros
 
-The `inttypes.h` header also provides corresponding scanf format macros with the `SCN` prefix. These follow the same naming pattern:[^16][^17][^18]
+The `inttypes.h` header also provides corresponding scanf format macros with the `SCN` prefix. These follow the same naming pattern:
 
 #### Scanf Format Macros for Signed Integers (Decimal)
 
@@ -299,7 +293,7 @@ The `inttypes.h` header also provides corresponding scanf format macros with the
 | `SCNdMAX` | Scanf format for `intmax_t` | `scanf("%" SCNdMAX, &val)` |
 | `SCNdPTR` | Scanf format for `intptr_t` | `scanf("%" SCNdPTR, &val)` |
 
-Similar patterns exist for `SCNi` (integer), `SCNo` (octal), `SCNu` (unsigned), and `SCNx` (hexadecimal) format specifiers.[^17]
+Similar patterns exist for `SCNi` (integer), `SCNo` (octal), `SCNu` (unsigned), and `SCNx` (hexadecimal) format specifiers.
 
 ## Practical Usage Examples
 
@@ -307,108 +301,14 @@ Similar patterns exist for `SCNi` (integer), `SCNo` (octal), `SCNu` (unsigned), 
 
 ## Standards Compliance
 
-The `inttypes.h` header was introduced in **C99** and is part of the ISO C standard. It's also available in C++ as `<cinttypes>`. For C++ programs, the format macros are only available when `__STDC_FORMAT_MACROS` is defined before including the header.[^3][^19][^20][^21][^22]
+The `inttypes.h` header was introduced in **C99** and is part of the ISO C standard. It's also available in C++ as `<cinttypes>`. For C++ programs, the format macros are only available when `__STDC_FORMAT_MACROS` is defined before including the header.
 
 ## Key Benefits
 
-1. **Portability**: Ensures consistent formatting across different platforms and architectures[^1][^15]
-2. **Type Safety**: Eliminates guesswork about correct format specifiers for fixed-width types[^2]
-3. **Standards Compliance**: Part of the C standard library since C99[^19]
-4. **Wide Character Support**: Includes wide character versions of conversion functions[^11][^12]
-5. **Maximum Integer Types**: Provides functions for the widest available integer types[^5][^6]
+1. **Portability**: Ensures consistent formatting across different platforms and architectures
+2. **Type Safety**: Eliminates guesswork about correct format specifiers for fixed-width types
+3. **Standards Compliance**: Part of the C standard library since C99
+4. **Wide Character Support**: Includes wide character versions of conversion functions
+5. **Maximum Integer Types**: Provides functions for the widest available integer types
 
 The `inttypes.h` header is essential for modern C programming when working with fixed-width integer types, providing both the format specifiers needed for portable I/O operations and utility functions for the maximum-width integer types.
-<span style="display:none">[^23][^24][^25][^26][^27][^28][^29][^30][^31][^32][^33][^34][^35][^36][^37][^38][^39][^40][^41][^42][^43][^44][^45]</span>
-
-<div style="text-align: center">⁂</div>
-
-[^1]: https://pubs.opengroup.org/onlinepubs/009604399/basedefs/inttypes.h.html
-
-[^2]: https://beej.us/guide/bgclr/html/split/inttypes.html
-
-[^3]: https://en.wikibooks.org/wiki/C_Programming/inttypes.h
-
-[^4]: https://docs.oracle.com/cd/E36784_01/html/E36873/inttypes.h-3head.html
-
-[^5]: https://cplusplus.com/reference/cinttypes/
-
-[^6]: https://www.alphacodingskills.com/c/c-inttypes-h.php
-
-[^7]: https://www.ibm.com/docs/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxbd00/imaxdiv.htm
-
-[^8]: https://manpages.ubuntu.com/manpages/xenial/man7/inttypes.h.7posix.html
-
-[^9]: https://man7.org/linux/man-pages/man3/strtoimax.3.html
-
-[^10]: https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strtoimax-strtoimax-l-wcstoimax-wcstoimax-l?view=msvc-170
-
-[^11]: https://pubs.opengroup.org/onlinepubs/7990949875/functions/wcstoimax.html
-
-[^12]: https://man.openbsd.org/wcstoimax.3
-
-[^13]: https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-wcstoumax-convert-wide-character-string-intmax-t
-
-[^14]: https://www.qnx.com/developers/docs/6.4.0/neutrino/lib_ref/w/wcstoimax.html
-
-[^15]: https://docs.oracle.com/cd/E19253-01/816-5138/convert-13/index.html
-
-[^16]: https://www.ibm.com/docs/en/zos/2.4.0?topic=files-inttypesh-define-macros-sprintf-sscanf-family
-
-[^17]: https://www.qnx.com/developers/docs/6.5.0SP1.update/com.qnx.doc.dinkum_en_c99/inttypes.html
-
-[^18]: https://docs.oracle.com/cd/E88353_01/html/E37842/inttypes-3head.html
-
-[^19]: https://en.wikipedia.org/wiki/C_standard_library
-
-[^20]: https://www.nongnu.org/avr-libc/user-manual/group__avr__inttypes.html
-
-[^21]: https://www.ibm.com/docs/en/i/7.4.0?topic=files-inttypesh
-
-[^22]: https://en.cppreference.com/w/cpp/header/cinttypes.html
-
-[^23]: https://gustedt.gitlabpages.inria.fr/c23-library/
-
-[^24]: https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3348r0.pdf
-
-[^25]: https://www.reddit.com/r/C_Programming/comments/wtcnh5/inttypesh_different_macros_for_fprintf_and_fscanf/
-
-[^26]: https://www.tutorialspoint.com/c_standard_library/c_library_inttypes_h.htm
-
-[^27]: https://devdocs.io/c/
-
-[^28]: https://docs.oracle.com/cd/E19205-01/819-5265/bjamo/index.html
-
-[^29]: https://libc.llvm.org/headers/inttypes.html
-
-[^30]: https://unstop.com/blog/header-files-in-c
-
-[^31]: https://en.wikipedia.org/wiki/C_data_types
-
-[^32]: https://stackoverflow.com/questions/6299323/good-introduction-to-inttypes-h
-
-[^33]: https://cppreference-45864d.gitlab-pages.liu.se/en/c/header.html
-
-[^34]: https://developer.arm.com/documentation/dui0472/c/compiler-coding-practices/extended-integer-types-and-functions-in--inttypes-h--and--stdint-h--in-c99
-
-[^35]: https://www.refreshnotes.com/2016/10/c-library-function-inttypes.html
-
-[^36]: https://pubs.opengroup.org/onlinepubs/9699919799.2008edition/basedefs/inttypes.h.html
-
-[^37]: https://en.cppreference.com/w/c/string/wide/wcstoimax.html
-
-[^38]: https://sites.uclouvain.be/SystInfo/usr/include/inttypes.h.html
-
-[^39]: https://en.cppreference.com/w/c/header/inttypes.html
-
-[^40]: https://bs2manuals.ts.fujitsu.com/psCRTEV210en/c-library-functions-for-posix-applications-reference-manual-21887-1/functions-and-variables-in-alphabetical-order-c-library-functions-for-posix-applications-v4-0b05-sp25-1-125/w-c-library-functions-for-posix-applications-v4-0b05-sp25-1-823/wcstoumax-convert-wide-character-string-to-integer-of-type-uintmax_t-c-library-functions-for-posix-applications-v4-0b05-sp25-1-719
-
-[^41]: https://docs.zephyrproject.org/apidoc/latest/inttypes_8h.html
-
-[^42]: https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/inttypes.h.html
-
-[^43]: https://codebrowser.dev/gcc/include/inttypes.h.html
-
-[^44]: https://stackoverflow.com/questions/16859500/what-is-priu64-in-c
-
-[^45]: https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/18f8c0f2ac0b3ff6fac4c27e57a6ddf8/49b4e9c4-7c76-48dd-ac90-f33394b822bf/825c27f1.csv
-
