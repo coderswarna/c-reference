@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
 # Non-Local Jumps with setjmp.h
 
 **Key Insight:** The `<setjmp.h>` header defines the ability to perform **non-local jumps** in C by saving execution context via a `jmp_buf` and later restoring it with `longjmp`. This mechanism enables you to “jump back” to an earlier point in the call stack, bypassing normal function return paths.

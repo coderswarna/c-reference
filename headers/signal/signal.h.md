@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
 # Comprehensive Reference for `<signal.h>` in C
 
 **Key Takeaway:** The `<signal.h>` header provides facilities for handling asynchronous events (“signals”) such as program interrupts and arithmetic errors. Its core components are two functions (`signal` and `raise`), a set of signal‐handling macros, an integer type for safe flag access, and a list of predefined signal constants.

@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
 # Complete Reference Guide to C `inttypes.h` Header File
 
 The `inttypes.h` header file, introduced in C99, provides portable format specifiers for integer types defined in `stdint.h` and functions for working with the widest integer types. This header is essential for writing portable code that handles different integer sizes across various platforms.[^1][^2][^3]
