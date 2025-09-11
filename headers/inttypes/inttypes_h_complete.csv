@@ -1,0 +1,106 @@
+Category,Name,Type,Description,Return_Type,Parameters,Usage_Example,Output_Example
+Function,imaxabs,Function,Computes absolute value of intmax_t,intmax_t,intmax_t j,imaxabs(-12345),12345
+Function,imaxdiv,Function,Computes quotient and remainder of intmax_t division,imaxdiv_t,"intmax_t numer, intmax_t denom","imaxdiv(45, 7)","quot=6, rem=3"
+Function,strtoimax,Function,Convert string to intmax_t,intmax_t,"const char *restrict nptr, char **restrict endptr, int base","strtoimax(""12345"", NULL, 10)",12345
+Function,strtoumax,Function,Convert string to uintmax_t,uintmax_t,"const char *restrict nptr, char **restrict endptr, int base","strtoumax(""54321"", NULL, 10)",54321
+Function,wcstoimax,Function,Convert wide string to intmax_t,intmax_t,"const wchar_t *restrict nptr, wchar_t **restrict endptr, int base","wcstoimax(L""98765"", NULL, 10)",98765
+Function,wcstoumax,Function,Convert wide string to uintmax_t,uintmax_t,"const wchar_t *restrict nptr, wchar_t **restrict endptr, int base","wcstoumax(L""56789"", NULL, 10)",56789
+Type,imaxdiv_t,Structure,Structure type returned by imaxdiv(),struct,intmax_t quot; intmax_t rem;,"imaxdiv_t result = imaxdiv(45, 7);","result.quot=6, result.rem=3"
+Macro,PRId8,Printf Format,Format specifier for int8_t (decimal),String literal,None,"printf(""%"" PRId8, val8)",127
+Macro,PRId16,Printf Format,Format specifier for int16_t (decimal),String literal,None,"printf(""%"" PRId16, val16)",32767
+Macro,PRId32,Printf Format,Format specifier for int32_t (decimal),String literal,None,"printf(""%"" PRId32, val32)",2147483647
+Macro,PRId64,Printf Format,Format specifier for int64_t (decimal),String literal,None,"printf(""%"" PRId64, val64)",9223372036854775807
+Macro,PRIdLEAST8,Printf Format,Format specifier for int_least8_t (decimal),String literal,None,"printf(""%"" PRIdLEAST8, val)",127
+Macro,PRIdLEAST16,Printf Format,Format specifier for int_least16_t (decimal),String literal,None,"printf(""%"" PRIdLEAST16, val)",32767
+Macro,PRIdLEAST32,Printf Format,Format specifier for int_least32_t (decimal),String literal,None,"printf(""%"" PRIdLEAST32, val)",2147483647
+Macro,PRIdLEAST64,Printf Format,Format specifier for int_least64_t (decimal),String literal,None,"printf(""%"" PRIdLEAST64, val)",9223372036854775807
+Macro,PRIdFAST8,Printf Format,Format specifier for int_fast8_t (decimal),String literal,None,"printf(""%"" PRIdFAST8, val)",127
+Macro,PRIdFAST16,Printf Format,Format specifier for int_fast16_t (decimal),String literal,None,"printf(""%"" PRIdFAST16, val)",32767
+Macro,PRIdFAST32,Printf Format,Format specifier for int_fast32_t (decimal),String literal,None,"printf(""%"" PRIdFAST32, val)",2147483647
+Macro,PRIdFAST64,Printf Format,Format specifier for int_fast64_t (decimal),String literal,None,"printf(""%"" PRIdFAST64, val)",9223372036854775807
+Macro,PRIdMAX,Printf Format,Format specifier for intmax_t (decimal),String literal,None,"printf(""%"" PRIdMAX, val)",9223372036854775807
+Macro,PRIdPTR,Printf Format,Format specifier for intptr_t (decimal),String literal,None,"printf(""%"" PRIdPTR, val)",140737488355328
+Macro,PRIi8,Printf Format,Format specifier for int8_t (integer),String literal,None,"printf(""%"" PRIi8, val8)",127
+Macro,PRIi16,Printf Format,Format specifier for int16_t (integer),String literal,None,"printf(""%"" PRIi16, val16)",32767
+Macro,PRIi32,Printf Format,Format specifier for int32_t (integer),String literal,None,"printf(""%"" PRIi32, val32)",2147483647
+Macro,PRIi64,Printf Format,Format specifier for int64_t (integer),String literal,None,"printf(""%"" PRIi64, val64)",9223372036854775807
+Macro,PRIiLEAST8,Printf Format,Format specifier for int_least8_t (integer),String literal,None,"printf(""%"" PRIiLEAST8, val)",127
+Macro,PRIiLEAST16,Printf Format,Format specifier for int_least16_t (integer),String literal,None,"printf(""%"" PRIiLEAST16, val)",32767
+Macro,PRIiLEAST32,Printf Format,Format specifier for int_least32_t (integer),String literal,None,"printf(""%"" PRIiLEAST32, val)",2147483647
+Macro,PRIiLEAST64,Printf Format,Format specifier for int_least64_t (integer),String literal,None,"printf(""%"" PRIiLEAST64, val)",9223372036854775807
+Macro,PRIiFAST8,Printf Format,Format specifier for int_fast8_t (integer),String literal,None,"printf(""%"" PRIiFAST8, val)",127
+Macro,PRIiFAST16,Printf Format,Format specifier for int_fast16_t (integer),String literal,None,"printf(""%"" PRIiFAST16, val)",32767
+Macro,PRIiFAST32,Printf Format,Format specifier for int_fast32_t (integer),String literal,None,"printf(""%"" PRIiFAST32, val)",2147483647
+Macro,PRIiFAST64,Printf Format,Format specifier for int_fast64_t (integer),String literal,None,"printf(""%"" PRIiFAST64, val)",9223372036854775807
+Macro,PRIiMAX,Printf Format,Format specifier for intmax_t (integer),String literal,None,"printf(""%"" PRIiMAX, val)",9223372036854775807
+Macro,PRIiPTR,Printf Format,Format specifier for intptr_t (integer),String literal,None,"printf(""%"" PRIiPTR, val)",140737488355328
+Macro,PRIu8,Printf Format,Format specifier for uint8_t (unsigned),String literal,None,"printf(""%"" PRIu8, val8)",255
+Macro,PRIu16,Printf Format,Format specifier for uint16_t (unsigned),String literal,None,"printf(""%"" PRIu16, val16)",65535
+Macro,PRIu32,Printf Format,Format specifier for uint32_t (unsigned),String literal,None,"printf(""%"" PRIu32, val32)",4294967295
+Macro,PRIu64,Printf Format,Format specifier for uint64_t (unsigned),String literal,None,"printf(""%"" PRIu64, val64)",18446744073709551615
+Macro,PRIuLEAST8,Printf Format,Format specifier for uint_least8_t (unsigned),String literal,None,"printf(""%"" PRIuLEAST8, val)",255
+Macro,PRIuLEAST16,Printf Format,Format specifier for uint_least16_t (unsigned),String literal,None,"printf(""%"" PRIuLEAST16, val)",65535
+Macro,PRIuLEAST32,Printf Format,Format specifier for uint_least32_t (unsigned),String literal,None,"printf(""%"" PRIuLEAST32, val)",4294967295
+Macro,PRIuLEAST64,Printf Format,Format specifier for uint_least64_t (unsigned),String literal,None,"printf(""%"" PRIuLEAST64, val)",18446744073709551615
+Macro,PRIuFAST8,Printf Format,Format specifier for uint_fast8_t (unsigned),String literal,None,"printf(""%"" PRIuFAST8, val)",255
+Macro,PRIuFAST16,Printf Format,Format specifier for uint_fast16_t (unsigned),String literal,None,"printf(""%"" PRIuFAST16, val)",65535
+Macro,PRIuFAST32,Printf Format,Format specifier for uint_fast32_t (unsigned),String literal,None,"printf(""%"" PRIuFAST32, val)",4294967295
+Macro,PRIuFAST64,Printf Format,Format specifier for uint_fast64_t (unsigned),String literal,None,"printf(""%"" PRIuFAST64, val)",18446744073709551615
+Macro,PRIuMAX,Printf Format,Format specifier for uintmax_t (unsigned),String literal,None,"printf(""%"" PRIuMAX, val)",18446744073709551615
+Macro,PRIuPTR,Printf Format,Format specifier for uintptr_t (unsigned),String literal,None,"printf(""%"" PRIuPTR, val)",140737488355328
+Macro,PRIo8,Printf Format,Format specifier for uint8_t (octal),String literal,None,"printf(""%"" PRIo8, val8)",377
+Macro,PRIo16,Printf Format,Format specifier for uint16_t (octal),String literal,None,"printf(""%"" PRIo16, val16)",177777
+Macro,PRIo32,Printf Format,Format specifier for uint32_t (octal),String literal,None,"printf(""%"" PRIo32, val32)",37777777777
+Macro,PRIo64,Printf Format,Format specifier for uint64_t (octal),String literal,None,"printf(""%"" PRIo64, val64)",1777777777777777777777
+Macro,PRIoLEAST8,Printf Format,Format specifier for uint_least8_t (octal),String literal,None,"printf(""%"" PRIoLEAST8, val)",377
+Macro,PRIoLEAST16,Printf Format,Format specifier for uint_least16_t (octal),String literal,None,"printf(""%"" PRIoLEAST16, val)",177777
+Macro,PRIoLEAST32,Printf Format,Format specifier for uint_least32_t (octal),String literal,None,"printf(""%"" PRIoLEAST32, val)",37777777777
+Macro,PRIoLEAST64,Printf Format,Format specifier for uint_least64_t (octal),String literal,None,"printf(""%"" PRIoLEAST64, val)",1777777777777777777777
+Macro,PRIoFAST8,Printf Format,Format specifier for uint_fast8_t (octal),String literal,None,"printf(""%"" PRIoFAST8, val)",377
+Macro,PRIoFAST16,Printf Format,Format specifier for uint_fast16_t (octal),String literal,None,"printf(""%"" PRIoFAST16, val)",177777
+Macro,PRIoFAST32,Printf Format,Format specifier for uint_fast32_t (octal),String literal,None,"printf(""%"" PRIoFAST32, val)",37777777777
+Macro,PRIoFAST64,Printf Format,Format specifier for uint_fast64_t (octal),String literal,None,"printf(""%"" PRIoFAST64, val)",1777777777777777777777
+Macro,PRIoMAX,Printf Format,Format specifier for uintmax_t (octal),String literal,None,"printf(""%"" PRIoMAX, val)",1777777777777777777777
+Macro,PRIoPTR,Printf Format,Format specifier for uintptr_t (octal),String literal,None,"printf(""%"" PRIoPTR, val)",2000000000000
+Macro,PRIx8,Printf Format,Format specifier for uint8_t (hex lowercase),String literal,None,"printf(""%"" PRIx8, val8)",ff
+Macro,PRIx16,Printf Format,Format specifier for uint16_t (hex lowercase),String literal,None,"printf(""%"" PRIx16, val16)",ffff
+Macro,PRIx32,Printf Format,Format specifier for uint32_t (hex lowercase),String literal,None,"printf(""%"" PRIx32, val32)",ffffffff
+Macro,PRIx64,Printf Format,Format specifier for uint64_t (hex lowercase),String literal,None,"printf(""%"" PRIx64, val64)",ffffffffffffffff
+Macro,PRIxLEAST8,Printf Format,Format specifier for uint_least8_t (hex lowercase),String literal,None,"printf(""%"" PRIxLEAST8, val)",ff
+Macro,PRIxLEAST16,Printf Format,Format specifier for uint_least16_t (hex lowercase),String literal,None,"printf(""%"" PRIxLEAST16, val)",ffff
+Macro,PRIxLEAST32,Printf Format,Format specifier for uint_least32_t (hex lowercase),String literal,None,"printf(""%"" PRIxLEAST32, val)",ffffffff
+Macro,PRIxLEAST64,Printf Format,Format specifier for uint_least64_t (hex lowercase),String literal,None,"printf(""%"" PRIxLEAST64, val)",ffffffffffffffff
+Macro,PRIxFAST8,Printf Format,Format specifier for uint_fast8_t (hex lowercase),String literal,None,"printf(""%"" PRIxFAST8, val)",ff
+Macro,PRIxFAST16,Printf Format,Format specifier for uint_fast16_t (hex lowercase),String literal,None,"printf(""%"" PRIxFAST16, val)",ffff
+Macro,PRIxFAST32,Printf Format,Format specifier for uint_fast32_t (hex lowercase),String literal,None,"printf(""%"" PRIxFAST32, val)",ffffffff
+Macro,PRIxFAST64,Printf Format,Format specifier for uint_fast64_t (hex lowercase),String literal,None,"printf(""%"" PRIxFAST64, val)",ffffffffffffffff
+Macro,PRIxMAX,Printf Format,Format specifier for uintmax_t (hex lowercase),String literal,None,"printf(""%"" PRIxMAX, val)",ffffffffffffffff
+Macro,PRIxPTR,Printf Format,Format specifier for uintptr_t (hex lowercase),String literal,None,"printf(""%"" PRIxPTR, val)",7fffffff0000
+Macro,PRIX8,Printf Format,Format specifier for uint8_t (hex uppercase),String literal,None,"printf(""%"" PRIX8, val8)",FF
+Macro,PRIX16,Printf Format,Format specifier for uint16_t (hex uppercase),String literal,None,"printf(""%"" PRIX16, val16)",FFFF
+Macro,PRIX32,Printf Format,Format specifier for uint32_t (hex uppercase),String literal,None,"printf(""%"" PRIX32, val32)",FFFFFFFF
+Macro,PRIX64,Printf Format,Format specifier for uint64_t (hex uppercase),String literal,None,"printf(""%"" PRIX64, val64)",FFFFFFFFFFFFFFFF
+Macro,PRIXLEAST8,Printf Format,Format specifier for uint_least8_t (hex uppercase),String literal,None,"printf(""%"" PRIXLEAST8, val)",FF
+Macro,PRIXLEAST16,Printf Format,Format specifier for uint_least16_t (hex uppercase),String literal,None,"printf(""%"" PRIXLEAST16, val)",FFFF
+Macro,PRIXLEAST32,Printf Format,Format specifier for uint_least32_t (hex uppercase),String literal,None,"printf(""%"" PRIXLEAST32, val)",FFFFFFFF
+Macro,PRIXLEAST64,Printf Format,Format specifier for uint_least64_t (hex uppercase),String literal,None,"printf(""%"" PRIXLEAST64, val)",FFFFFFFFFFFFFFFF
+Macro,PRIXFAST8,Printf Format,Format specifier for uint_fast8_t (hex uppercase),String literal,None,"printf(""%"" PRIXFAST8, val)",FF
+Macro,PRIXFAST16,Printf Format,Format specifier for uint_fast16_t (hex uppercase),String literal,None,"printf(""%"" PRIXFAST16, val)",FFFF
+Macro,PRIXFAST32,Printf Format,Format specifier for uint_fast32_t (hex uppercase),String literal,None,"printf(""%"" PRIXFAST32, val)",FFFFFFFF
+Macro,PRIXFAST64,Printf Format,Format specifier for uint_fast64_t (hex uppercase),String literal,None,"printf(""%"" PRIXFAST64, val)",FFFFFFFFFFFFFFFF
+Macro,PRIXMAX,Printf Format,Format specifier for uintmax_t (hex uppercase),String literal,None,"printf(""%"" PRIXMAX, val)",FFFFFFFFFFFFFFFF
+Macro,PRIXPTR,Printf Format,Format specifier for uintptr_t (hex uppercase),String literal,None,"printf(""%"" PRIXPTR, val)",7FFFFFFF0000
+Macro,SCNd8,Scanf Format,Scanf format specifier for int8_t (decimal),String literal,None,"scanf(""%"" SCNd8, &val8)",Input: 127
+Macro,SCNd16,Scanf Format,Scanf format specifier for int16_t (decimal),String literal,None,"scanf(""%"" SCNd16, &val16)",Input: 32767
+Macro,SCNd32,Scanf Format,Scanf format specifier for int32_t (decimal),String literal,None,"scanf(""%"" SCNd32, &val32)",Input: 2147483647
+Macro,SCNd64,Scanf Format,Scanf format specifier for int64_t (decimal),String literal,None,"scanf(""%"" SCNd64, &val64)",Input: 9223372036854775807
+Macro,SCNdLEAST8,Scanf Format,Scanf format specifier for int_least8_t (decimal),String literal,None,"scanf(""%"" SCNdLEAST8, &val)",Input: 127
+Macro,SCNdLEAST16,Scanf Format,Scanf format specifier for int_least16_t (decimal),String literal,None,"scanf(""%"" SCNdLEAST16, &val)",Input: 32767
+Macro,SCNdLEAST32,Scanf Format,Scanf format specifier for int_least32_t (decimal),String literal,None,"scanf(""%"" SCNdLEAST32, &val)",Input: 2147483647
+Macro,SCNdLEAST64,Scanf Format,Scanf format specifier for int_least64_t (decimal),String literal,None,"scanf(""%"" SCNdLEAST64, &val)",Input: 9223372036854775807
+Macro,SCNdFAST8,Scanf Format,Scanf format specifier for int_fast8_t (decimal),String literal,None,"scanf(""%"" SCNdFAST8, &val)",Input: 127
+Macro,SCNdFAST16,Scanf Format,Scanf format specifier for int_fast16_t (decimal),String literal,None,"scanf(""%"" SCNdFAST16, &val)",Input: 32767
+Macro,SCNdFAST32,Scanf Format,Scanf format specifier for int_fast32_t (decimal),String literal,None,"scanf(""%"" SCNdFAST32, &val)",Input: 2147483647
+Macro,SCNdFAST64,Scanf Format,Scanf format specifier for int_fast64_t (decimal),String literal,None,"scanf(""%"" SCNdFAST64, &val)",Input: 9223372036854775807
+Macro,SCNdMAX,Scanf Format,Scanf format specifier for intmax_t (decimal),String literal,None,"scanf(""%"" SCNdMAX, &val)",Input: 9223372036854775807
+Macro,SCNdPTR,Scanf Format,Scanf format specifier for intptr_t (decimal),String literal,None,"scanf(""%"" SCNdPTR, &val)",Input: 140737488355328
