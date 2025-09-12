@@ -1,4 +1,4 @@
-# Non-Local Jumps with setjmp.h
+# **Complete C reference for Non-Local Jumps with `setjmp.h`**
 
 **Key Insight:** The `<setjmp.h>` header defines the ability to perform **non-local jumps** in C by saving execution context via a `jmp_buf` and later restoring it with `longjmp`. This mechanism enables you to “jump back” to an earlier point in the call stack, bypassing normal function return paths.
 
@@ -6,29 +6,28 @@
 
 ## 1. Core Types and Macros
 
-**`jmp_buf`**
-A typedef for an array type capable of holding information needed to restore a program’s calling environment.
+- **`jmp_buf`**: A typedef for an array type capable of holding information needed to restore a program’s calling environment.
 
 ```c
 #include <setjmp.h>
 jmp_buf env;
 ```
 
-**`setjmp(env)`**
+- **`setjmp(env)`**
 
-- Category: Function-like macro (often implemented as a macro)
-- Prototype: `int setjmp(jmp_buf env);`
-- Use: Saves the current calling environment (stack context, registers) into `env`.
-- Return values:
+  - Category: Function-like macro (often implemented as a macro)
+  - Prototype: `int setjmp(jmp_buf env);`
+  - Use: Saves the current calling environment (stack context, registers) into `env`.
+  - Return values:
     - **0** when saving the environment initially
     - **nonzero** when returning via `longjmp` (the value passed to `longjmp`, or 1 if that value is 0)
 
-**`longjmp(env, val)`**
+- **`longjmp(env, val)`**
 
-- Category: Function (not a macro)
-- Prototype: `void longjmp(jmp_buf env, int val);`
-- Use: Restores the environment previously saved by `setjmp(env)`, causing `setjmp` to return with `val`.
-- Behavior:
+  - Category: Function (not a macro)
+  - Prototype: `void longjmp(jmp_buf env, int val);`
+  - Use: Restores the environment previously saved by `setjmp(env)`, causing `setjmp` to return with `val`.
+  - Behavior:
     - Does not return to the call of `longjmp`; instead, execution resumes at the corresponding `setjmp`.
     - If `val` is 0, `setjmp` returns 1. Otherwise, it returns `val`.
 
@@ -66,12 +65,11 @@ int main(void) {
 
 **Expected Output:**
 
-```
+```c
 setjmp returned 0 initially
 Inside second(), calling longjmp
 Returned to main via longjmp with value 42
 ```
-
 
 ***
 
@@ -94,11 +92,11 @@ On POSIX-compliant systems, `<setjmp.h>` may also provide:
 
 - **`sigjmp_buf`**: Like `jmp_buf`, but also saves signal mask.
 - **`sigsetjmp(env, savesigs)`**
-    - Prototype: `int sigsetjmp(sigjmp_buf env, int savesigs);`
-    - Saves calling environment and, if `savesigs != 0`, the current signal mask.
+  - Prototype: `int sigsetjmp(sigjmp_buf env, int savesigs);`
+  - Saves calling environment and, if `savesigs != 0`, the current signal mask.
 - **`siglongjmp(env, val)`**
-    - Prototype: `void siglongjmp(sigjmp_buf env, int val);`
-    - Restores environment and optionally restores saved signal mask.
+  - Prototype: `void siglongjmp(sigjmp_buf env, int val);`
+  - Restores environment and optionally restores saved signal mask.
 
 **Example Snippet:**
 
@@ -127,7 +125,6 @@ int main(void) {
 }
 ```
 
-
 ***
 
 ## 5. Best Practices and Caveats
@@ -136,7 +133,6 @@ int main(void) {
 - **Volatile Variables:** Local variables modified after `setjmp` but needed after `longjmp` should be declared `volatile` to ensure proper values.
 - **Signal Safety:** Only call async-signal-safe functions between `sigsetjmp` and `siglongjmp` when saving/restoring signal masks.
 
-***
-
 By leveraging `setjmp` and `longjmp`, developers can implement error recovery, coroutines, or lightweight backtracking. However, due to their non-local nature, they should be used judiciously and with full awareness of stack state and resource management.
 
+***
