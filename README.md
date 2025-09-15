@@ -4,7 +4,7 @@ This repository contains various C programming study materials, including source
 
 ---
 
-## **Author: [*`Swarnadeep Paul`*](https://github.com/coderswarna)**
+## **Author: [***`Swarnadeep Paul`***](https://github.com/coderswarna)**
 
 ## **Contents**
 
@@ -14,11 +14,17 @@ Below is a list of files in this folder:
 - [`Header Files List`](./c23_headers.md): The main file containing all standard C headers.
 - [`Format Specifier Reference`](./c-format-specifiers.md): This file explains in depth about the format specifier and its various types and nitty gritty.
 
-## Getting Started
+---
+
+## **Getting Started**
 
 - Browse the files above to find code samples and notes.
 
-## Contribution
+---
+
+## **Contribution**
 
 - Feel free to contribute or suggest improvements!
 - Just make a pull request with detailed notes
+
+---
