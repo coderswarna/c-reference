@@ -215,7 +215,7 @@ Slept for 1.5 seconds
 int main(void) {
     time_t now = time(NULL);
     struct tm *tm = localtime(&now);
-    char buf;
+    char buf[128];
     strftime(buf, sizeof buf, "%Y-%m-%d %H:%M:%S", tm);
     printf("Formatted date: %s\n", buf);
     return 0;
