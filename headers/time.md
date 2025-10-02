@@ -27,7 +27,7 @@ The **`<time.h>`** header provides facilities for date and time manipulation. It
 
 ```c
 struct tm {
-    int tm_sec;    /* seconds [0,60] */
+    int tm_sec;    /* seconds [0,59] */
     int tm_min;    /* minutes [0,59] */
     int tm_hour;   /* hours   [0,23] */
     int tm_mday;   /* day     [1,31] */
