@@ -217,6 +217,7 @@ int main(void) {
     struct tm *tm = localtime(&now);
     char buf[128];
     strftime(buf, sizeof buf, "%Y-%m-%d %H:%M:%S", tm);
+    strftime(buf, sizeof buf, "%Y-%m-%d %I:%M:%S %p", tm);
     printf("Formatted date: %s\n", buf);
     return 0;
 }
@@ -226,6 +227,7 @@ int main(void) {
 
 ```c
 Formatted date: 2025-09-12 18:05:00
+Formatted date: 2025-09-12 6:05:00 pm
 ```
 
 ***
